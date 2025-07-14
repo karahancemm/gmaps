@@ -1,0 +1,11 @@
+#pyinstaller outputs
+dist/
+build/
+
+#python caches
+__pycache__/
+*.py[cod]
+
+#virtual-envs
+.env
+.venv
