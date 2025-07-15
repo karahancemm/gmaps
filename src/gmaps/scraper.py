@@ -1,6 +1,7 @@
 import sys, random, time, csv, re
 from datetime import datetime, timedelta
 
+
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import StaleElementReferenceException
@@ -75,7 +76,6 @@ def scroll_reviews(driver, pause: float = 0.8):
     while True:
         cards = driver.find_elements(By.CSS_SELECTOR, "div.jftiEf.fontBodyMedium")
         count = len(cards)
-        
         #If no new cards have appeared in a few iterations
         if count == last_count:
             same += 1
@@ -127,16 +127,5 @@ def save_csv(data: list[dict], outfile: str):
     print(f"[OK] Saved {len(data)} reviews to {outfile}")
 
 
-
-"""## Selenium
-def parse_html(driver) -> list[dict]:
-    cards = driver.find_elements(By.CSS_SELECTOR, 'div.jftiEf.fontBodyMedium')
-    reviews = driver.find_elements(By.CSS_SELECTOR, 'span.wiI7pd')      
-    out_user = []
-    out_review = []
-    for c in cards:
-        out_user.append(c.get_attribute('aria-label'))
-"""
-    
 
 
